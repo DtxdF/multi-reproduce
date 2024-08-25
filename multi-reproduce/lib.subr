@@ -1,0 +1,102 @@
+#!/bin/sh
+
+# See sysexits(3)
+EX_OK=0
+EX_USAGE=64
+EX_NOINPUT=66
+EX_SOFTWARE=70
+
+PREFIX="main"
+
+set -T
+
+setprefix()
+{
+    if [ $# -lt 1 ]; then
+        err "usage: setprefix <prefix>"
+        exit ${EX_USAGE}
+    fi
+
+    PREFIX="$1"
+}
+
+info()
+{
+    log info "$*"
+}
+
+err()
+{
+    log err "$*"
+}
+
+warn()
+{
+    log warn "$*"
+}
+
+log()
+{
+    printf "%s\n" "$1 :: <${PREFIX}> :: $2" >&2
+}
+
+upload()
+{
+    if [ $# -lt 3 ]; then
+        err "usage: upload <dir> <image> <url>"
+        exit ${EX_USAGE}
+    fi
+
+    local dir
+    dir="$1"
+
+    local image
+    image="$2"
+
+    local url
+    url="$3"
+
+    local file
+    for file in "${dir}/${image}"/*.appjail; do
+        if [ "${file}" = "${dir}/${image}/*.appjail" ]; then
+            warn "No *.appjail files found in '${image}'"
+            return ${EX_NOINPUT}
+        fi
+
+        file=`realpath -- "${file}"` || return $?
+
+        local bs_file
+        bs_file=`basename -- "${file}"` || return $?
+
+        local total=5 retry=0
+
+        while [ ${retry} -lt ${total} ]; do
+            info "uploading '${file}' as "${url}/${image}/${bs_file}" (${retry}/${total})"
+
+            if printf -- "-@mkdir \"%s\"\n" "${image}" | sftp -b - "${url}" 2> /dev/null; then
+                if printf "@put \"%s\"\n" "${file}" | sftp -b - "${url}/${image}"; then
+                    info "file '${file}' has been uploaded"
+                    break
+                fi
+            fi
+
+            local sleep_time
+            sleep_time=`rand_number`
+
+            info "sleeping ${sleep_time}"
+
+            sleep "${sleep_time}" || return $?
+
+            retry=$((retry+1))
+        done
+
+        if [ ${retry} -ge ${total} ]; then
+            warn "an error has occurred while uploading '${file}'"
+        fi
+    done
+}
+
+rand_number()
+{
+    dd if=/dev/random | grep --binary-files=text -Ee '[1-9]+' -o | head -c "${1:-1}" | tr -d '\n' && echo
+}
