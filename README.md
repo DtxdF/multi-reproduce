@@ -135,9 +135,3 @@ Some Makejails require changing the source project version to the new version, s
 | [Homepage](https://github.com/AppJail-makejails/homepage) | `0.9.6` |
 | [Calibre Web](https://github.com/AppJail-makejails/calibreweb) | `0.6.23` |
 | [Lychee](https://github.com/AppJail-makejails/lychee) | `5.5.1` |
-
-## Notes
-
-1. The following Makejails are build manually and should not be used by this project:
-
-    * [SearxNG](https://github.com/AppJail-makejails/searxng) ([Port](https://github.com/DtxdF/searxng-port))
