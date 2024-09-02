@@ -12,6 +12,7 @@ dnsmasq
 documentserver
 filebrowser
 flatnotes
+jupyter-notebook
 gitea
 glances
 go

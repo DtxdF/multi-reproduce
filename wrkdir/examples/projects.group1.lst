@@ -37,6 +37,7 @@ mailpit
 postgres
 searxng
 flatnotes
+jupyter-notebook
 documentserver
 rabbitmq
 apache
