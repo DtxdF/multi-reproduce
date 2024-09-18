@@ -122,16 +122,16 @@ Some Makejails require changing the source project version to the new version, s
 
 | Makejail | Last Versions |
 | --- | --- |
-| [Alpine Linux](https://github.com/AppJail-makejails/alpine-linux) | `3.20.2` |
-| [Burp Suite](https://github.com/AppJail-makejails/burpsuite) | `2024.6.6` |
-| [InvenTree](https://github.com/AppJail-makejails/inventree) | `0.15.8` |
+| [Alpine Linux](https://github.com/AppJail-makejails/alpine-linux) | `3.20.3` |
+| [Burp Suite](https://github.com/AppJail-makejails/burpsuite) | `2024.7.4` |
+| [InvenTree](https://github.com/AppJail-makejails/inventree) | `0.16.2` |
 | [AdminerEvo](https://github.com/AppJail-makejails/adminerevo) | `4.8.4` |
 | [MariaDB](https://github.com/AppJail-makejails/mariadb) | `105`, `106`, `1011`, `114` |
-| [WordPress](https://github.com/AppJail-makejails/wordpress) | `6.6.1` |
+| [WordPress](https://github.com/AppJail-makejails/wordpress) | `6.6.2` |
 | [PHP](https://github.com/AppJail-makejails/php) | `81`, `82`, `83`, `84` |
-| [File Browser](https://github.com/AppJail-makejails/filebrowser) | `2.30.0` |
-| [GO](https://github.com/AppJail-makejails/go) | `120`, `121`, `122` |
+| [File Browser](https://github.com/AppJail-makejails/filebrowser) | `2.31.1` |
+| [GO](https://github.com/AppJail-makejails/go) | `120`, `121`, `122`, `123` |
 | [Python](https://github.com/AppJail-makejails/python) | `2`, `3`, `27`, `38`. `39`. `310`. `311` |
-| [Homepage](https://github.com/AppJail-makejails/homepage) | `0.9.6` |
+| [Homepage](https://github.com/AppJail-makejails/homepage) | `0.9.9` |
 | [Calibre Web](https://github.com/AppJail-makejails/calibreweb) | `0.6.23` |
 | [Lychee](https://github.com/AppJail-makejails/lychee) | `5.5.1` |
