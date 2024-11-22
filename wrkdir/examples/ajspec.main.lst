@@ -9,6 +9,8 @@ burpsuite
 darkhttpd
 ttyd
 element-web
+grafana
+prometheus
 dasherr:dasherr-apache:dasherr-fpm
 dnsmasq
 documentserver

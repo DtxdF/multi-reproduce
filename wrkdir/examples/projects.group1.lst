@@ -3,6 +3,8 @@ badwolf
 darkhttpd
 ttyd
 element-web
+grafana
+prometheus
 miniflux
 minidlna
 wireguard
